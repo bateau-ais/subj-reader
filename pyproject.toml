@@ -1,0 +1,15 @@
+[project]
+name = "subj-reader"
+version = "0.1.0"
+description = "CLI utility to subscribe to Almanach topics and log received messages"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "almanach",
+]
+
+[project.scripts]
+subj-reader = "main:main"
+
+[tool.uv.sources]
+almanach = { git = "https://github.com/bateau-ais/almanach.git" }
