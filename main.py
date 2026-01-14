@@ -1,4 +1,5 @@
 import argparse
+import asyncio
 import logging
 
 from almanach import AlmanachSubscriber
@@ -48,7 +49,7 @@ def main():
     def handler(msg):
         log.info(f"{msg}")
 
-    app.run()
+    asyncio.run(app.run())
 
 
 if __name__ == "__main__":
