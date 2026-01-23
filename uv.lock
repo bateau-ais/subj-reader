@@ -5,7 +5,7 @@ requires-python = ">=3.14"
 [[package]]
 name = "almanach"
 version = "0.0.0"
-source = { git = "https://github.com/bateau-ais/almanach.git#889ca66f95509c661334713e37a2ebafe47e10bd" }
+source = { git = "https://github.com/bateau-ais/almanach.git#2d1169220cd6bf00732ea22513dfd1094290716e" }
 dependencies = [
     { name = "msgpack" },
     { name = "nats-py" },
