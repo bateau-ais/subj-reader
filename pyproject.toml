@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "almanach",
+    "rich>=14.2.0",
 ]
 
 [project.scripts]

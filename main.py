@@ -3,6 +3,10 @@ import asyncio
 import logging
 
 from almanach import AlmanachSubscriber
+from rich.logging import RichHandler
+from rich import print_json
+from rich.console import Console
+from uuid import uuid4
 
 log = logging.getLogger(__name__)
 
@@ -45,13 +49,16 @@ def main():
 
     app = AlmanachSubscriber()
 
-    @app.subscribe(*args["topics"], validator=lambda x: x, key=args["key"])
+    topics: dict[str, str] = {str(uuid4()): [x] for x in args["topics"]}
+
+    @app.subscribe(**topics, validator=lambda x: x, key=args["key"])
     def handler(msg):
-        log.info(f"{msg}")
+        print_json(data=msg)
 
     asyncio.run(app.run())
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level="INFO")
+    console = Console(stderr=True)
+    logging.basicConfig(level="INFO", handlers=[RichHandler(console=console)])
     main()
